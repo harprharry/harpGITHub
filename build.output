@@ -1,0 +1,17 @@
+Buildfile: c:\antPractise\build.xml
+     [echo]  This is the init Target C:\srcDir 
+     [echo]  This is the build Target 
+     [echo]  ${version} 
+     [echo]  This is the compile Target 
+     [echo]  This is the clean Target 
+
+clean:
+
+build:
+
+compile:
+
+init:
+
+BUILD SUCCESSFUL
+Total time: 0 seconds

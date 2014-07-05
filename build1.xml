@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<project name="NorthWesteren Mutual" default="init">
+	<property file="build.properties"/>
+	
+	<echo> This is the init Target ${srcDir} </echo>
+	<target name="init" depends="build,clean,compile"/>
+	
+	<target name="build" depends="clean"/>
+			<echo> This is the build Target </echo>
+			
+	
+	<!--<copy todir="${destDir}">
+		<fileset dir="${srcDir}" includes="**/*.java"/>
+		<filterset>
+			<filter token="version"  value="{version}"/>
+			
+		</filterset>
+		
+	</copy>
+	-->
+	
+
+	
+	<target name="compile">
+	<echo> This is the compile Target </echo>
+	<mkdir dir="${destDir}"/>
+	<javac destdir=${destDir} source="1.8.0" target="1.8.0">
+	<src path=${srcDir}/>
+	<classpath refid="master-classpath"/>
+	</javac>
+	</target>
+	
+	
+	
+	<target name="clean">
+		<echo> This is the clean Target </echo>
+		<delete>
+			<echo> I am deleting it. </echo>
+			<fileset dir=${destDir}>
+				<include name="**/*.java">
+			</fileset>
+		</delete>
+	</target>
+	
+</project>	
