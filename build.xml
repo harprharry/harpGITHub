@@ -4,7 +4,7 @@
 	<echo> This is the init Target ${srcDir} </echo>
 	<target name="init" depends="build,compile,clean"/>
 	
-	<target name="build" depends="clean"/>
+	<target name="build" depends="clean">
 			<echo> This is the build Target </echo>
 			
 	<echo> ${version} </echo>
@@ -17,7 +17,8 @@
 		
 	</copy>
 	
-	
+	<javac srcdir="${srcDir}" destDir="${destDir}" debug="on" source="1.4"/>
+	</target>
 
 	
 	<target name="compile"/>
