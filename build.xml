@@ -1,32 +1,25 @@
 <?xml version="1.0" ?>
-<project name="NorthWesteren Mutual" default="init">
-	<property file="build.properties"/>
-	<echo> This is the init Target ${srcDir} </echo>
-	<target name="init" depends="build,compile,clean"/>
-	
-	<target name="build" depends="clean">
-			<echo> This is the build Target </echo>
-			
-	<echo> ${version} </echo>
-	<copy todir="${destDir}">
-		<fileset dir="${srcDir}" includes="**/*.java"/>
-		<filterset>
-			<filter token="version"  value="{version}"/>
-			
-		</filterset>
-		
-	</copy>
-	
-	<javac srcdir="${srcDir}" destDir="${destDir}" debug="on" source="1.4"/>
-	</target>
+<project>
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
 
-	
-	<target name="compile"/>
-	<echo> This is the compile Target </echo>
-	
-	<target name="clean"/>
-	<echo> This is the clean Target </echo>
-	
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="c:/jF/" destdir="build/classes"/>
+    </target>
 
-	
-</project>	
+    <target name="jar">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/HelloWorld.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="oata.HelloWorld"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java jar="build/jar/HelloWorld.jar" fork="true"/>
+    </target>
+
+</project>
